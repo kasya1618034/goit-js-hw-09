@@ -39,6 +39,13 @@ function updateCountdown() {
   const currentDate = new Date();
   const timeDifference = selectedDate - currentDate;
 
+  if (timeDifference <= 0) {
+    clearInterval(countdownInterval);
+    document.querySelector('[data-start]').disabled = true;
+    return;
+  }
+
+  const { days, hours, minutes, seconds } = convertMs(timeDifference);
 }
 
 function convertMs(ms) {
