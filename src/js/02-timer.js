@@ -46,6 +46,14 @@ function updateCountdown() {
   }
 
   const { days, hours, minutes, seconds } = convertMs(timeDifference);
+  document.querySelector('[data-days]').textContent = addLeadingZero(days);
+  document.querySelector('[data-hours]').textContent = addLeadingZero(hours);
+  document.querySelector('[data-minutes]').textContent = addLeadingZero(minutes);
+  document.querySelector('[data-seconds]').textContent = addLeadingZero(seconds);
+}
+
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {
@@ -62,3 +70,4 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
+document.querySelector('[data-start]').addEventListener('click', startCountdown);
