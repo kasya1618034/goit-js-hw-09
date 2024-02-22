@@ -1,8 +1,12 @@
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   if (shouldResolve) {
-    // Fulfill
+    resolve({ position, delay });
   } else {
-    // Reject
+    reject({ position, delay });
   }
 }
+
+document.querySelector('.form').addEventListener('submit', function (event) {
+  event.preventDefault();
+});
